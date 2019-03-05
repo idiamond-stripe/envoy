@@ -91,6 +91,9 @@ TEST(StringUtil, atoull) {
   EXPECT_TRUE(StringUtil::atoull("00789", out));
   EXPECT_EQ(789U, out);
 
+  EXPECT_TRUE(StringUtil::atoull("00789.0", out));
+  EXPECT_EQ(789u, out);
+
   // Verify subsequent call to atoull succeeds after the first one
   // failed due to errno ERANGE
   EXPECT_FALSE(StringUtil::atoull("18446744073709551616", out));
